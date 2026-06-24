@@ -1,16 +1,80 @@
-# React + Vite
+# Movies Portfolio 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive movie discovery application built with React and Vite. This project is specifically designed as a learning sandbox to practice configuring **CI/CD pipelines from scratch** and deploying to **Vercel**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Project Purpose & CI/CD Focus
+This project serves as a hands-on exercise for configuring and understanding CI/CD concepts:
+* **CI/CD from Scratch:** Designed to implement, test, and troubleshoot deployment workflows.
+* **Vercel Deployment:** Automatically deploys production-ready builds on pushes to the repository.
+* **Pre-deployment Verification:** Includes local build checks, TypeScript compilation, linting, and automated unit testing.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technology Stack
+* **Framework:** React 19
+* **Build Tool:** Vite 8
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS 3 (with PostCSS & Autoprefixer)
+* **Testing:** Vitest
+* **Linting:** ESLint
+* **Data Provider:** [TMDB API](https://www.themoviedb.org/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🏗️ Design Patterns & Architecture
+The project applies clean code architecture and standard frontend design patterns:
+
+### 1. Context Provider Pattern
+Manages global state for movies, loading indicators, and error tracking across components without prop-drilling.
+* **File:** `src/context/MovieContext.tsx`
+
+### 2. Custom Hooks & Debouncing
+Encapsulates complex logic for search delays. The search input uses a 500ms debounce cleanup to prevent unnecessary TMDB API calls while typing.
+* **File:** `src/hooks/useMovieSearch.ts`
+
+### 3. Service Layer Pattern
+Abstracts API communication logic away from React components, providing clean, reusable methods for fetching and searching movies.
+* **File:** `src/services/movie.service.ts`
+
+### 4. API Mocking & Spy Testing
+Ensures testing isolation by using Vitest spies (`vi.spyOn`) and static JSON mock data to verify API services without making real network requests.
+* **File:** `src/tests/services/movie.service.test.ts`
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+Make sure you have Node.js and `pnpm` installed.
+
+### Installation
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Install dependencies
+pnpm install
+```
+
+### Environment Setup
+Create a `.env` file in the root directory and add your TMDB API key:
+```env
+VITE_TMDB_KEY=your_tmdb_api_key_here
+```
+
+### Available Scripts
+```bash
+# Run local development server
+pnpm dev
+
+# Run Vitest test suite
+pnpm test
+
+# Run ESLint check
+pnpm lint
+
+# Build the project (TypeScript check + Vite build)
+pnpm build
+```
