@@ -3,7 +3,6 @@ import { Movie, MovieResponse } from '@/types/movie.type';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_KEY;
 
-console.log(API_KEY)
 export const movieService = {
     getPopularMovies: async (): Promise<Movie[]> => {
         try {

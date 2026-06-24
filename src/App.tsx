@@ -2,10 +2,9 @@ import { MovieGrid } from "@/components/MovieGrid.tsx"
 
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
+    <div className="bg-gray-500 px-5 py-10">
       <MovieGrid />
-    </>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { movieService } from "@/services/movie.service.ts";
-import { useMovieContext } from "@/context/MovieContext.ts";
+import { useMovieContext } from "@/context/MovieContext.tsx";
 
 export const useMovieSearch = (query: string) => {
     const { setMovies, setIsLoading, setError } = useMovieContext();
