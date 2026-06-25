@@ -3,8 +3,8 @@ import SearchBar from '@/components/SearchBar';
 
 function App() {
   return (
-    <div className="bg-gray-500 px-5 py-10">
-      <h1 className="text-9xl text-white py-10 text-center font-mono">Popular Movies</h1>
+    <div className="bg-gradient-to-t from-black via-red-900 to-yellow-600">
+      <h1 className="text-6xl text-white py-10 text-center font-mono">Popular Movies</h1>
       <SearchBar />
       <MovieGrid />
       <footer className="text-center text-white py-10">

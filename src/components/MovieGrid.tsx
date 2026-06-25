@@ -20,7 +20,7 @@ export const MovieGrid: React.FC = () => {
 
     return (
         <section>
-            <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+            <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
                 {
                     isLoading
                         ? <h2>Loading...</h2>
