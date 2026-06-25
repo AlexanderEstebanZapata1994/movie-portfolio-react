@@ -1,25 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useDebouce } from '@/hooks/useDebounce';
-import { movieService } from '@/services/movie.service';
-import { useMovieContext } from '@/context/MovieContext';
-import { Movie } from '@/models/Movie';
+import { useState } from 'react';
+import { useMovieSearch } from '@/hooks/useMovieSearch';
 
 const SearchBar = () => {
     const [input, setInput] = useState("");
-    const deboucedQuery = useDebouce(input, 500);
-    const { setFilteredMovies } = useMovieContext();
-
-    useEffect(() => {
-        if (deboucedQuery) {
-            movieService.searchMovies(deboucedQuery).then((movies: Movie[]) => {
-                setFilteredMovies(movies)
-            }).catch(() => {
-                console.log("Error while searching")
-            })
-        } else {
-            setFilteredMovies([])
-        }
-    }, [deboucedQuery, setFilteredMovies])
+    useMovieSearch(input);
 
     return (
         <input
