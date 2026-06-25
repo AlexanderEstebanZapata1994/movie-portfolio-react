@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMovieContext } from '@/context/MovieContext.tsx';
 import { movieService } from "@/services/movie.service.ts"
+import defaultMoviePoster from "@/assets/img/default-movie-poster.jpg";
 
 export const MovieGrid: React.FC = () => {
     const { popularMovies, setPopularMovies, filteredMovies, isLoading, setIsLoading, error, setError } = useMovieContext();
@@ -25,11 +26,11 @@ export const MovieGrid: React.FC = () => {
                     isLoading
                         ? <h2>Loading...</h2>
                         : movies.map((movie) => (
-                            <div key={movie.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 cursor-pointer">
+                            <div key={movie.id} className="w-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 cursor-pointer">
                                 <img
-                                    src={baseImageUrl + movie.poster_path}
+                                    src={!movie.poster_path ? defaultMoviePoster : baseImageUrl + movie.poster_path}
                                     alt={movie.title}
-                                    className="w-full h-96 object-cover"
+                                    className="h-96 object-cover"
                                 />
                                 <div className="p-4">
                                     <h3 className="text-white font-bold text-lg truncate" title={movie.title}>{movie.title}</h3>

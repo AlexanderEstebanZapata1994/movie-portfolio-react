@@ -4,8 +4,10 @@ import SearchBar from '@/components/SearchBar';
 function App() {
   return (
     <div className="bg-gradient-to-t from-black via-red-900 to-yellow-600">
-      <h1 className="text-6xl text-white py-10 text-center font-mono">Popular Movies</h1>
-      <SearchBar />
+      <section className="bg-transparent sticky top-0 z-10">
+        <h1 className="text-6xl text-white py-10 text-center font-mono">Popular Movies</h1>
+        <SearchBar />
+      </section>
       <MovieGrid />
       <footer className="text-center text-white py-10">
         <p className="text-sm">Powered by TMDB, this is a no-profit project for learning purposes</p>

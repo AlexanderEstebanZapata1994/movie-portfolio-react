@@ -8,7 +8,7 @@ const SearchBar = () => {
     return (
         <input
             type="text"
-            className="w-1/2 flex mx-auto px-2 py-3 mb-24 rounded-full bg-slate-300 placeholder:text-slate-500 focus:shadow-lg focus:scale-150 transition-transform duration-300 ease-in-out"
+            className="w-1/2 flex mx-auto px-2 py-3 mb-12 rounded-full bg-slate-300 placeholder:text-slate-500 focus:shadow-lg focus:scale-150 transition-transform duration-300 ease-in-out"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Search for a movie..."
