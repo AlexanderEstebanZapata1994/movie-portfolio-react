@@ -1,9 +1,11 @@
 import { MovieGrid } from "@/components/MovieGrid.tsx"
+import SearchBar from '@/components/SearchBar';
 
 function App() {
   return (
     <div className="bg-gray-500 px-5 py-10">
-      <h1 className="text-4xl text-white py-10 text-center font-mono">My Movies Portfolio</h1>
+      <h1 className="text-9xl text-white py-10 text-center font-mono">Popular Movies</h1>
+      <SearchBar />
       <MovieGrid />
       <footer className="text-center text-white py-10">
         <p className="text-sm">Powered by TMDB, this is a no-profit project for learning purposes</p>
