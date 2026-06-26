@@ -3,7 +3,7 @@ import SearchBar from '@/components/SearchBar';
 
 function App() {
   return (
-    <div className="bg-gradient-to-t from-black via-red-900 to-yellow-600">
+    <div className="bg-linear-to-t from-black via-red-900 to-yellow-600">
       <section className="bg-transparent sticky top-0 z-10">
         <h1 className="text-6xl text-white py-10 text-center font-mono">Popular Movies</h1>
         <SearchBar />
