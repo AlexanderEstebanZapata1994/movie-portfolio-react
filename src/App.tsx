@@ -3,9 +3,9 @@ import SearchBar from '@/components/SearchBar';
 
 function App() {
   return (
-    <div className="bg-linear-to-t from-black via-red-900 to-yellow-600">
-      <section className="bg-transparent sticky top-0 z-10">
-        <h1 className="text-6xl text-white py-10 text-center font-mono">Popular Movies</h1>
+    <div className="h-dvh w-dvw overflow-x-hidden bg-linear-to-t from-black via-red-900 to-yellow-600">
+      <section className="py-2 bg-transparent">
+        <h1 className="text-4xl xs:text-2xl sm:text-6xl text-white py-5 px-2.5 text-center font-sans">What Movie is next...</h1>
         <SearchBar />
       </section>
       <MovieGrid />

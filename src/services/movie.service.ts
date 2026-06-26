@@ -26,5 +26,17 @@ export const movieService = {
             console.error('Error searching for the requested movie:', error);
             throw error;
         }
+    },
+
+    getMovieDetails: async (id: string): Promise<Movie> => {
+        try {
+            const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+            if (!response.ok) throw new Error('Error trying to fetch the requested movie');
+            const data: Movie = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error trying to fetch the requested movie:', error);
+            throw error;
+        }
     }
 }
