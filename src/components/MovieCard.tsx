@@ -1,10 +1,13 @@
 import React from "react"
-import { Movie } from "@/models/Movie"
+import { Movie } from '@/types/movie.type'
 import defaultMoviePoster from "@/assets/img/default-movie-poster.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
+interface MovieCardProps {
+    movie: Movie
+}
 
-export const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
+export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     const navigate = useNavigate();
     const baseImageUrl = "https://image.tmdb.org/t/p/w500/"; // import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
 
@@ -18,15 +21,14 @@ export const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
         }
     }
     return (
-        <article key={movie.id}
-            onClick={() => navigate(`/movie/${movie.id}`)}
-            className={"w-64 dark:bg-amber-950 bg-opacity-55 rounded-4xl overflow-hidden shadow-lg transition-transform group perspective-distant"}>
+        <Link key={movie.id} to={`/movie/${movie.id}`} className={"w-64 dark:bg-amber-950 bg-opacity-55 rounded-4xl overflow-hidden shadow-lg transition-transform group perspective-distant"} viewTransition>
             <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] cursor-pointer md:cursor-auto md:group-hover:[transform:rotateY(180deg)]">
                 <div className="inset-0 backface-hidden transition-transform duration-500 rotate-y-0">
                     <img
                         src={!movie.poster_path ? defaultMoviePoster : baseImageUrl + movie.poster_path}
                         alt={movie.title}
                         className="h-96 object-cover"
+                        style={{ viewTransitionName: `poster-${movie.id}` }}
                     />
                     <div className="bg-amber-100 dark:bg-amber-900 p-4">
                         <h3 className="text-amber-900 dark:text-amber-100 font-bold text-lg truncate" title={movie.title}>{movie.title}</h3>
@@ -45,6 +47,6 @@ export const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
                     <button className="mt-auto bg-amber-500 dark:bg-amber-800 text-white mb-4 px-2 rounded-lg cursor-pointer" onClick={() => navigate(`/movie/${movie.id}`)}>View more</button>
                 </div>
             </div>
-        </article>
+        </Link>
     )
 }

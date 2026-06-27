@@ -1,4 +1,4 @@
-import { Movie, MovieResponse } from '@/types/movie.type';
+import { Movie, MovieResponse } from '@/models/Movie';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_KEY;
