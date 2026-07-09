@@ -4,8 +4,20 @@ import { Link, useParams } from "react-router-dom";
 import { movieService } from "@/services/movie.service";
 import { useMovieContext } from "@/context/MovieContext";
 import { Spinner } from "./Spinner";
+
+//TODO: this is not working because a failure with the API KEY for the AI gateway VERCEL
+const getSummary = (title: string) => {
+    return fetch("/api/summary", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title }),
+    }).then(res => res.json()).then(data => data.summary);
+}
+
 export const MovieDetails = () => {
-    const baseImageUrl = "https://image.tmdb.org/t/p/w500/"; // import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
+    const baseImageUrl = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
 
     const { id } = useParams();
     const [movie, setMovie] = useState<Movie | null>(null);
@@ -17,7 +29,6 @@ export const MovieDetails = () => {
             movieService.getMovieDetails(id)
                 .then(movie => {
                     setMovie(movie);
-                    console.log(movie)
                 })
                 .finally(() => {
                     setIsLoading(false);
