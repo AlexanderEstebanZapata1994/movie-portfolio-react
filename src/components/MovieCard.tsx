@@ -8,7 +8,7 @@ interface MovieCardProps {
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
-    const baseImageUrl = "https://image.tmdb.org/t/p/w500/"; // import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
+    const baseImageUrl = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
 
     const ratingColorStyle = () => {
         if (movie.vote_average >= 8) {
