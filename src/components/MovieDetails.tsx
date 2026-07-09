@@ -74,7 +74,7 @@ export const MovieDetails = () => {
             <article className="w-dvw flex flex-col justify-center items-center backdrop-blur-[500px] py-8 px-8">
                 <h1 className="text-5xl font-bold text-center">{movie?.title}</h1>
                 <button onClick={() => toggleFavorite()}>{isFavorite ? "Remove from favorites" : "Add to favorites"}</button>
-                <h3>{isFavorite ? "Favorited" : "Not Favorited"}</h3>
+                <h3 className="text-md">{isFavorite ? "❤️" : "🤍"}</h3>
                 <img className="xs:h-1/3 h-1/2 w-auto mt-12 mb-12 rounded-3xl" src={`${baseImageUrl}${movie?.poster_path}`} alt={movie?.title} style={{ viewTransitionName: `poster-${id}` }} />
                 <h3 className="text-3xl mb-8 font-extrabold">Overview</h3>
                 <p className="max-w-3xl text-xl font-sans leading-relaxed">{movie?.overview}</p>
