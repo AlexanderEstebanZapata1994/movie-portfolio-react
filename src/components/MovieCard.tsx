@@ -1,7 +1,7 @@
 import React from "react"
 import { Movie } from '@/types/movie.type'
 import defaultMoviePoster from "@/assets/img/default-movie-poster.jpg";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface MovieCardProps {
     movie: Movie
